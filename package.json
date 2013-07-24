@@ -1,0 +1,30 @@
+{
+    "name": "docpad-plugin-rss",
+    "version": "2.0.0",
+    "description": "DocPad plugin that generates an RSS feed for a collection of documents",
+    "keywords": [
+        "docpad",
+        "docpad-plugin",
+        "ATOM",
+        "RSS",
+        "feed"
+    ],
+    "bugs": {
+        "url": "https://github.com/hurrymaplelad/docpad-plugin-rss/issues"
+    },
+    "repository" : {
+        "type": "git",
+        "url": "http://github.com/hurrymaplelad/docpad-plugin-rss.git"
+    },
+    "maintainers": [
+        "Adam Hull <adam@hmlad.com>"
+    ],
+    "dependencies": {
+        "rss": "~0.2.0"
+    },
+    "engines" : {
+        "node": ">=0.8",
+        "docpad": ">=6"
+    },
+    "main": "./rss.plugin.coffee"
+}
