@@ -14,3 +14,5 @@ plugins:
   rss:
     collection: 'posts'
 ```
+
+RSS feed is written to `<outPath>/rss.xml`.
