@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-rss",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "DocPad plugin that generates an RSS feed for a collection of documents",
   "keywords": [
     "docpad",
