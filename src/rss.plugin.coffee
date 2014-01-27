@@ -10,7 +10,28 @@ module.exports = (BasePlugin) ->
         collection: 'html'
         url: '/rss.xml'
 
-    writeCollection: (configName,collectionConfig) ->
+    ###
+    manage compatibility with previous versions of the plugins
+    TODO remove when deprecated
+    ###
+    fixOldConfigurationFormat = (config) ->
+      if config.collection? or config.url?
+        #be compatible with previous version
+        oldConf =
+          collection: config.collection or 'html'
+          url:config.url or '/rss.xml'
+        delete config.collection
+        delete config.url
+        config.default = oldConf
+        @docpad.log('warn','docpad-plugin-rss configuration format has changed see the README.md for more informations')
+        @docpad.log('warn', "docpad-plugin-rss configuration must be changed to #{JSON.stringify(config,null,4)}")
+      return config
+
+    getConfig: ->
+      config = super()
+      return fixOldConfigurationFormat(config)
+
+    writeCollection = (configName,collectionConfig) ->
       {docpad} = @
       {site} = docpad.getTemplateData()
       feedCollection = docpad.getCollection collectionConfig.collection
