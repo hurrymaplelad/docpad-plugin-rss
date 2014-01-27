@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-rss",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "DocPad plugin that generates an RSS feed for a collection of documents",
   "keywords": [
     "docpad",
@@ -19,12 +19,23 @@
   "maintainers": [
     "Adam Hull <adam@hmlad.com>"
   ],
+  "contributors": [
+    "Eric Vantillard <eric.vantillard@evaxion.fr> (http://github.com/evantill)"
+  ],
   "dependencies": {
     "rss": "~0.2.0"
   },
   "engines": {
-    "node": ">=0.8",
-    "docpad": ">=6"
+    "node": ">=0.8"
   },
-  "main": "./rss.plugin.coffee"
+  "peerDependencies": {
+    "docpad": "6"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3"
+  },
+  "main": "./src/rss.plugin.coffee",
+  "scripts": {
+    "test": "node ./out/rss.test.js"
+  }
 }
