@@ -17,8 +17,12 @@ module.exports = (testers) ->
           date: new Date('Mon, 27 Jan 2014 13:01:00 GMT')
       plugins:
         rss:
-          collection: 'html'
-          url: '/rss.xml'
+          default:
+            collection: 'html'
+            url: '/rss.xml'
+          folder1:
+            collection: 'folder1'
+            url: '/rss-folder1.xml'
       enabledPlugins:
         'marked': true
         'eco': true

@@ -6,19 +6,20 @@ module.exports = (BasePlugin) ->
     name: 'rss'
 
     config:
-      collection: 'html'
-      url: '/rss.xml'
+      default:
+        collection: 'html'
+        url: '/rss.xml'
 
-    writeAfter: ->
+    writeCollection: (configName,collectionConfig) ->
       {docpad} = @
       {site} = docpad.getTemplateData()
-      feedCollection = docpad.getCollection @config.collection
-      feedPath = docpad.getConfig().outPath + @config.url
+      feedCollection = docpad.getCollection collectionConfig.collection
+      feedPath = docpad.getConfig().outPath + collectionConfig.url
       feed = new RSS
         title: site.title
         description: site.description
         site_url: site.url
-        feed_url: site.url + @config.url
+        feed_url: site.url + collectionConfig.url
         author: site.author
         pubDate: site.date.toISOString()
 
@@ -32,4 +33,8 @@ module.exports = (BasePlugin) ->
           date: document.date.toISOString()
 
       fs.writeFileSync feedPath, feed.xml(true)
-      docpad.log 'debug', "Wrote the RSS xml file to: #{feedPath}"
+      docpad.log 'debug', "Wrote the RSS #{configName} xml file to: #{feedPath}"
+
+    writeAfter: ->
+      for own configName,collectionConfig of @getConfig()
+        writeCollection configName,collectionConfig
