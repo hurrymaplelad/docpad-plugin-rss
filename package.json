@@ -23,7 +23,7 @@
     "Eric Vantillard <eric.vantillard@evaxion.fr> (http://github.com/evantill)"
   ],
   "dependencies": {
-    "rss": "~0.2.0"
+    "rss": "git://github.com/apelsophiebarat/node-rss#v0.3.1"
   },
   "engines": {
     "node": ">=0.8"
