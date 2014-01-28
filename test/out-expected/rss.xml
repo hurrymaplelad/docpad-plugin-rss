@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[site title]]></title>
+        <description><![CDATA[site description]]></description>
+        <link>http://my-site-url.com</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Mon, 27 Jan 2014 16:56:45 GMT</lastBuildDate>
+        <atom:link href="http://my-site-url.com/rss.xml" rel="self" type="application/rss+xml"/>
+        <author><![CDATA[eric.vantillard@evaxion.fr]]></author>
+        <pubDate>Mon, 27 Jan 2014 13:01:00 GMT</pubDate>
+        <item>
+            <title><![CDATA[doc3 title]]></title>
+            <description><![CDATA[doc3 content]]></description>
+            <link>http://my-site-url.com/doc3.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/doc3.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[No title]]></title>
+            <description><![CDATA[doc4 content]]></description>
+            <link>http://my-site-url.com/doc4.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/doc4.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[doc1 title]]></title>
+            <description><![CDATA[doc1 content]]></description>
+            <link>http://my-site-url.com/folder1/folder1-doc1.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc1.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[doc2 title]]></title>
+            <description><![CDATA[doc2 content]]></description>
+            <link>http://my-site-url.com/folder1/folder1-doc2.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc2.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+        </item>
+    </channel>
+</rss>

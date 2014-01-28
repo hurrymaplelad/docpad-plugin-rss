@@ -1,0 +1,10 @@
+{
+  "name": "docpad-plugin-rss-testsite",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "docpad": "~6.60.3",
+    "docpad-plugin-eco": "~2.0.3",
+    "docpad-plugin-marked": "~2.2.0"
+  }
+}
