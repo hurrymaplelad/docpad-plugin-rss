@@ -1,6 +1,6 @@
 {
   "name": "docpad-plugin-rss",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "DocPad plugin that generates an RSS feed for a collection of documents",
   "keywords": [
     "docpad",
@@ -23,7 +23,7 @@
     "Eric Vantillard <eric.vantillard@evaxion.fr> (http://github.com/evantill)"
   ],
   "dependencies": {
-    "rss": "git://github.com/apelsophiebarat/node-rss#v0.3.1"
+    "rss": "~0.3.2"
   },
   "engines": {
     "node": ">=0.8"
