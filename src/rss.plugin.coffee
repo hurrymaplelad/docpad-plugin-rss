@@ -15,10 +15,12 @@ module.exports = (BasePlugin) ->
           title: (templateData) -> templateData.site.title
           description: (templateData) -> templateData.site.description
           pubDate: (templateData) -> templateData.site.date
+          author: (templateData) -> templateData.site.author
         item:
           title: (document) -> document.title
           description: (document) -> document.contentRenderedWithoutLayouts
           date: (document) -> document.date
+          author: (document) -> document.author
 
     ###
     manage compatibility with previous versions of the plugins
@@ -79,7 +81,7 @@ module.exports = (BasePlugin) ->
           description: channelHelpers.description(templateData)
           site_url: site.url
           feed_url: site.url + collectionConfig.url
-          author: site.author
+          author: channelHelpers.author(templateData)
           pubDate: channelHelpers.pubDate(templateData).toISOString()
       catch error
         docpad.log 'error', "Error while creating rss channel #{configName}: #{error}"
@@ -95,7 +97,7 @@ module.exports = (BasePlugin) ->
         try
           feed.item
             title: itemHelpers.title(document)
-            author: document.author
+            author: itemHelpers.author(document)
             description: itemHelpers.description(document)
             url: site.url + document.url
             date: itemHelpers.date(document).toISOString()
