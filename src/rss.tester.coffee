@@ -5,7 +5,7 @@ module.exports = (testers) ->
     # Configuration
     config:
       removeWhitespace: false
-      contentRemoveRegex: /\<(lastBuild|pub)Date\>.*\<\/(lastBuild|pub)Date\>/g
+      contentRemoveRegex: /\<lastBuildDate\>.*\<\/lastBuildDate\>/g
 
     docpadConfig:
       templateData:
@@ -20,12 +20,23 @@ module.exports = (testers) ->
           #must be compatible with previous version
           collection: 'html'
           url: '/rss.xml'
+          default:
+            item:
+              date: (document) -> new Date('Mon, 27 Jan 2014 13:02:00 GMT')
           folder1:
             collection: 'folder1'
             url: '/rss-folder1.xml'
+            maxItems: 2
+            channel:
+              title: (templateData) -> templateData.site.title
+              description: (templateData) -> templateData.site.description
+              pubDate: (templateData) -> templateData.site.date
+            item:
+              description: (document) -> document.contentRendered
+              date: (document) -> new Date(document.meta.itemDate)
       collections:
         folder1: ->
-          @getFiles(relativeOutDirPath: $startsWith: 'folder1')
+          @getFiles(relativeOutDirPath: $startsWith: 'folder1',[itemDate: -1])
       enabledPlugins:
         'marked': true
         'eco': true

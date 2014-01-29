@@ -1,6 +1,7 @@
 module.exports = (BasePlugin) ->
   fs = require 'fs'
   RSS = require 'rss'
+  extendr = require 'extendr'
 
   class RssPlugin extends BasePlugin
     name: 'rss'
@@ -9,6 +10,15 @@ module.exports = (BasePlugin) ->
       default:
         collection: 'html'
         url: '/rss.xml'
+        maxItems: 10
+        channel:
+          title: (templateData) -> templateData.site.title
+          description: (templateData) -> templateData.site.description
+          pubDate: (templateData) -> templateData.site.date
+        item:
+          title: (document) -> document.title
+          description: (document) -> document.contentRenderedWithoutLayouts
+          date: (document) -> document.date
 
     ###
     manage compatibility with previous versions of the plugins
@@ -17,45 +27,92 @@ module.exports = (BasePlugin) ->
     fixOldConfigurationFormat = (config) ->
       if config.collection? or config.url?
         #be compatible with previous version
-        oldConf =
-          collection: config.collection or 'html'
-          url:config.url or '/rss.xml'
+        config.default.collection = config.collection or 'html'
         delete config.collection
+        config.default.url = config.url or '/rss.xml'
         delete config.url
-        config.default = oldConf
+        newFormatDescription =  """
+                                plugins:
+                                \trss:
+                                \t\tdefault:
+                                \t\t\tcollection: '#{config.default.collection}'
+                                \t\t\turl: '#{config.default.url}'
+                                """
         @docpad.log('warn','docpad-plugin-rss configuration format has changed see the README.md for more informations')
-        @docpad.log('warn', "docpad-plugin-rss configuration must be changed to #{JSON.stringify(config,null,4)}")
+        @docpad.log('warn', "docpad-plugin-rss configuration must be changed to #{newFormatDescription}")
+      return config
+
+    ###
+    Use the default collection configuration
+    to fill default options into all configured collections
+    ###
+    completeMissingHelpers = (config) ->
+      defaultConfig = config.default
+      for own name,collectionCnf of config when name isnt 'default'
+        config[name]=extendr.deepClone(defaultConfig,collectionCnf)
       return config
 
     getConfig: ->
       config = super()
-      return fixOldConfigurationFormat(config)
+      config = fixOldConfigurationFormat(config)
+      config = completeMissingHelpers(config)
+      return config
 
-    writeCollection = (configName,collectionConfig) ->
-      {docpad} = @
-      {site} = docpad.getTemplateData()
+    writeCollection = (configName,collectionConfig,next) ->
+      # Prepare
+      docpad = @docpad
+      docpadConfig = docpad.getConfig()
+      templateData = docpad.getTemplateData()
+
+      # Extract informations
+      {site} = templateData
+      {outPath} = docpadConfig
+      # Configurable helpers
+      channelHelpers = collectionConfig.channel
+      # Create feed
       feedCollection = docpad.getCollection collectionConfig.collection
-      feedPath = docpad.getConfig().outPath + collectionConfig.url
-      feed = new RSS
-        title: site.title
-        description: site.description
-        site_url: site.url
-        feed_url: site.url + collectionConfig.url
-        author: site.author
-        pubDate: site.date.toISOString()
+      feedPath = outPath + collectionConfig.url
+      feed = undefined
+      try
+        feed = new RSS
+          title: channelHelpers.title(templateData)
+          description: channelHelpers.description(templateData)
+          site_url: site.url
+          feed_url: site.url + collectionConfig.url
+          author: site.author
+          pubDate: channelHelpers.pubDate(templateData).toISOString()
+      catch error
+        docpad.log 'error', "Error while creating rss channel #{configName}: #{error}"
+        return next(error)
 
-      feedCollection.first(10).forEach (document) ->
+      # Extract informations
+      {maxItems} = collectionConfig
+      # Configurable helpers
+      itemHelpers = collectionConfig.item
+      # Create items
+      feedCollection.first(maxItems).forEach (document) ->
         document = document.toJSON()
-        feed.item
-          title: document.title
-          author: document.author
-          description: document.contentRenderedWithoutLayouts
-          url: site.url + document.url
-          date: document.date.toISOString()
+        try
+          feed.item
+            title: itemHelpers.title(document)
+            author: document.author
+            description: itemHelpers.description(document)
+            url: site.url + document.url
+            date: itemHelpers.date(document).toISOString()
+        catch error
+          docpad.log 'error', "Error while creating rss item for document #{document?.realtivePath} in channel #{configName}: #{error}"
+          return next(error)
 
       fs.writeFileSync feedPath, feed.xml(true)
       docpad.log 'debug', "Wrote the RSS #{configName} xml file to: #{feedPath}"
 
-    writeAfter: ->
-      for own configName,collectionConfig of @getConfig()
-        writeCollection configName,collectionConfig
+    writeAfter: (opts,next) ->
+      docpad = @docpad
+      config = @getConfig()
+      for own configName,collectionConfig of config
+        try
+          writeCollection(configName,collectionConfig,next)
+        catch error
+          docpad.log 'error', "Error while writing rss channel #{configName}: #{error}"
+          return next(error)
+      next()
