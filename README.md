@@ -12,8 +12,9 @@ Configure a collection to feed in your `docpad.coffee`:
 ```coffee
 plugins:
   rss:
-    collection: 'posts'
-    url: '/rss.xml' # optional, this is the default
+    default:
+      collection: 'posts'
+      url: '/rss.xml' # optional, this is the default
 ```
 
 RSS feed is written to `<outPath>/<url>`, `/rss.xml` by default.
