@@ -5,25 +5,29 @@
         <description><![CDATA[site description]]></description>
         <link>http://my-site-url.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 Jan 2014 16:56:45 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 29 Jan 2014 12:44:45 GMT</lastBuildDate>
         <atom:link href="http://my-site-url.com/rss-folder1.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[eric.vantillard@evaxion.fr]]></author>
         <pubDate>Mon, 27 Jan 2014 13:01:00 GMT</pubDate>
         <item>
+            <title><![CDATA[doc3 folder1 title]]></title>
+            <description><![CDATA[<h2>doc3 folder1 title</h2>
+<div><p>doc3 folder1 content</p>
+</div>]]></description>
+            <link>http://my-site-url.com/folder1/folder1-doc3.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc3.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Mon, 27 Jan 2014 16:00:00 GMT</pubDate>
+        </item>
+        <item>
             <title><![CDATA[doc1 title]]></title>
-            <description><![CDATA[doc1 content]]></description>
+            <description><![CDATA[<h2>doc1 title</h2>
+<div><p>doc1 content</p>
+</div>]]></description>
             <link>http://my-site-url.com/folder1/folder1-doc1.html</link>
             <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc1.html</guid>
             <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
-        </item>
-        <item>
-            <title><![CDATA[doc2 title]]></title>
-            <description><![CDATA[doc2 content]]></description>
-            <link>http://my-site-url.com/folder1/folder1-doc2.html</link>
-            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc2.html</guid>
-            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+            <pubDate>Mon, 27 Jan 2014 15:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>
