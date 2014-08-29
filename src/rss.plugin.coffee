@@ -14,7 +14,7 @@ module.exports = (BasePlugin) ->
     manage compatibility with previous versions of the plugins
     TODO remove when deprecated
     ###
-    fixOldConfigurationFormat = (config) ->
+    fixOldConfigurationFormat: (config) ->
       if config.collection? or config.url?
         #be compatible with previous version
         oldConf =
@@ -29,9 +29,9 @@ module.exports = (BasePlugin) ->
 
     getConfig: ->
       config = super()
-      return fixOldConfigurationFormat(config)
+      return @fixOldConfigurationFormat(config)
 
-    writeCollection = (configName,collectionConfig) ->
+    writeCollection: (configName,collectionConfig) ->
       {docpad} = @
       {site} = docpad.getTemplateData()
       feedCollection = docpad.getCollection collectionConfig.collection
@@ -58,4 +58,4 @@ module.exports = (BasePlugin) ->
 
     writeAfter: ->
       for own configName,collectionConfig of @getConfig()
-        writeCollection configName,collectionConfig
+        @writeCollection configName,collectionConfig
