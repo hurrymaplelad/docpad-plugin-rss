@@ -1,7 +1,11 @@
 {
   "name": "docpad-plugin-rss",
-  "version": "2.1.4",
+  "version": "2.0.0",
   "description": "DocPad plugin that generates an RSS feed for a collection of documents",
+  "homepage": "https://github.com/hurrymaplelad/docpad-plugin-rss",
+  "license": {
+    "type": "MIT"
+  },
   "keywords": [
     "docpad",
     "docpad-plugin",
@@ -9,21 +13,28 @@
     "RSS",
     "feed"
   ],
+  "badges": {
+    "travis": true,
+    "npm": true,
+    "npmdownloads": true,
+    "david": true,
+    "daviddev": true
+  },
+  "author": "Copyright holders name <copyright holder's email> (copyright holder's website url)",
+  "maintainers": [
+    "Adam Hull <adam@hmlad.com> (https://github.com/hurrymaplelad)"
+  ],
+  "contributors": [
+    "Eric Vantillard <eric.vantillard@evaxion.fr> (http://github.com/evantill)",
+    "hurrymaplelad (https://github.com/hurrymaplelad)",
+    "varya (https://github.com/varya)"
+  ],
   "bugs": {
     "url": "https://github.com/hurrymaplelad/docpad-plugin-rss/issues"
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/hurrymaplelad/docpad-plugin-rss.git"
-  },
-  "maintainers": [
-    "Adam Hull <adam@hmlad.com>"
-  ],
-  "contributors": [
-    "Eric Vantillard <eric.vantillard@evaxion.fr> (http://github.com/evantill)"
-  ],
-  "dependencies": {
-    "rss": "~0.3.2"
+    "url": "https://github.com/hurrymaplelad/docpad-plugin-rss.git"
   },
   "engines": {
     "node": ">=0.8"
@@ -31,11 +42,19 @@
   "peerDependencies": {
     "docpad": "6"
   },
-  "devDependencies": {
-    "coffee-script": "~1.6.3"
+  "dependencies": {
+    "rss": "^1.1.1"
   },
-  "main": "./src/rss.plugin.coffee",
+  "devDependencies": {
+    "docpad": "6",
+    "coffee-script": "^1.9.0",
+    "projectz": "^0.4.2"
+  },
+  "main": "./out/rss.plugin.js",
   "scripts": {
     "test": "node ./out/rss.test.js"
+  },
+  "cakeConfiguration": {
+    "COFFEE_SRC_PATH": "src"
   }
 }

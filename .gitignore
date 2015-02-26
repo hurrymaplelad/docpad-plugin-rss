@@ -1,5 +1,24 @@
+# v1.3.10 December 10, 2013
+# https://github.com/bevry/base
+
+# Temp Files
+**/*.log
+**/.docpad.db
+
+# Build Files
+build/
+components/
+bower_components/
 node_modules/
-npm-debug.log
 out/
-test/out/
-test/.docpad.db
+
+# Private Files
+.env
+.idea
+.cake_task_cache
+
+
+# =====================================
+# CUSTOM MODIFICATIONS
+
+# None
