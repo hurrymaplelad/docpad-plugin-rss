@@ -5,7 +5,7 @@
 
 Unless stated otherwise all works are:
 
-- Copyright &copy; Copyright holders name <copyright holder's email> (copyright holder's website url)
+- Copyright &copy; Adam Hull <adam@hmlad.com> (https://github.com/hurrymaplelad)
 
 and licensed under:
 
