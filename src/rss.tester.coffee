@@ -23,12 +23,23 @@ module.exports = (testers) ->
 					folder1:
 						collection: 'folder1'
 						url: '/rss-folder1.xml'
+					folders:
+						collection: 'folders'
+						url: '/rss-folders.xml'
 			collections:
 				all: ->
 					@getCollection('html').findAllLive({}, [date:-1])
 				folder1: ->
 					@getCollection('html').findAllLive(
 						{relativeOutDirPath: $startsWith: 'folder1'},
+						[date:-1]
+						)
+				folders: ->
+					@getCollection('html').findAllLive(
+						$or: [
+							{relativeOutDirPath: $startsWith: 'folder1'},
+							{relativeOutDirPath: $startsWith: 'folder2'}
+						],
 						[date:-1]
 						)
 			enabledPlugins:
