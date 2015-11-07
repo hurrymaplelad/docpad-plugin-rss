@@ -5,33 +5,41 @@
         <description><![CDATA[site description]]></description>
         <link>http://my-site-url.com</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 27 Jan 2014 16:56:45 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 07 Nov 2015 23:46:54 GMT</lastBuildDate>
         <atom:link href="http://my-site-url.com/rss.xml" rel="self" type="application/rss+xml"/>
         <author><![CDATA[eric.vantillard@evaxion.fr]]></author>
         <pubDate>Mon, 27 Jan 2014 13:01:00 GMT</pubDate>
-        <item>
-            <title><![CDATA[doc3 title]]></title>
-            <description><![CDATA[doc3 content]]></description>
-            <link>http://my-site-url.com/doc3.html</link>
-            <guid isPermaLink="true">http://my-site-url.com/doc3.html</guid>
-            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
-        </item>
         <item>
             <title><![CDATA[No title]]></title>
             <description><![CDATA[doc4 content]]></description>
             <link>http://my-site-url.com/doc4.html</link>
             <guid isPermaLink="true">http://my-site-url.com/doc4.html</guid>
             <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+            <pubDate>Fri, 06 Jan 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[doc3 title]]></title>
+            <description><![CDATA[doc3 content]]></description>
+            <link>http://my-site-url.com/doc3.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/doc3.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Thu, 05 Jan 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[doc2 title]]></title>
+            <description><![CDATA[doc2 content]]></description>
+            <link>http://my-site-url.com/folder2/folder2-doc2.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder2/folder2-doc2.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Wed, 04 Jan 2012 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[doc1 title]]></title>
             <description><![CDATA[doc1 content]]></description>
-            <link>http://my-site-url.com/folder1/folder1-doc1.html</link>
-            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc1.html</guid>
+            <link>http://my-site-url.com/folder2/folder2-doc1.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder2/folder2-doc1.html</guid>
             <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+            <pubDate>Tue, 03 Jan 2012 00:00:00 GMT</pubDate>
         </item>
         <item>
             <title><![CDATA[doc2 title]]></title>
@@ -39,7 +47,15 @@
             <link>http://my-site-url.com/folder1/folder1-doc2.html</link>
             <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc2.html</guid>
             <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
-            <pubDate>Mon, 27 Jan 2014 16:56:45 GMT</pubDate>
+            <pubDate>Mon, 02 Jan 2012 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[doc1 title]]></title>
+            <description><![CDATA[doc1 content]]></description>
+            <link>http://my-site-url.com/folder1/folder1-doc1.html</link>
+            <guid isPermaLink="true">http://my-site-url.com/folder1/folder1-doc1.html</guid>
+            <dc:creator><![CDATA[eric.vantillard@evaxion.fr]]></dc:creator>
+            <pubDate>Sun, 01 Jan 2012 00:00:00 GMT</pubDate>
         </item>
     </channel>
 </rss>

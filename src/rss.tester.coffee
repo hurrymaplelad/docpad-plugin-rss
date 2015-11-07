@@ -18,14 +18,19 @@ module.exports = (testers) ->
 			plugins:
 				rss:
 					#must be compatible with previous version
-					collection: 'html'
+					collection: 'all'
 					url: '/rss.xml'
 					folder1:
 						collection: 'folder1'
 						url: '/rss-folder1.xml'
 			collections:
+				all: ->
+					@getCollection('html').findAllLive({}, [date:-1])
 				folder1: ->
-					@getFiles(relativeOutDirPath: $startsWith: 'folder1')
+					@getCollection('html').findAllLive(
+						{relativeOutDirPath: $startsWith: 'folder1'},
+						[date:-1]
+						)
 			enabledPlugins:
 				'marked': true
 				'eco': true

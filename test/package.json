@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "docpad": "^6.73.5",
-    "docpad-plugin-eco": "^2.1.0",
-    "docpad-plugin-marked": "^2.3.0"
+    "docpad": "~6.73.5",
+    "docpad-plugin-eco": "~2.1.0",
+    "docpad-plugin-marked": "~2.3.0"
   }
 }
