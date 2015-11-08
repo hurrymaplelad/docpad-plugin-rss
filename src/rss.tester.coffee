@@ -4,7 +4,7 @@ module.exports = (testers) ->
 	class RssTester extends testers.RendererTester
 		# Configuration
 		config:
-			removeWhitespace: false
+			removeWhitespace: true
 			contentRemoveRegex: /\<(lastBuild|pub)Date\>.*\<\/(lastBuild|pub)Date\>/g
 
 		docpadConfig:

@@ -46,7 +46,6 @@ module.exports = (BasePlugin) ->
 
 			feedCollection.first(10).forEach (document) ->
 				document = document.toJSON()
-				console.log 'TITLE', document.title
 				feed.item
 					title: document.title
 					author: document.author
