@@ -37,7 +37,7 @@ module.exports = (BasePlugin) ->
 			feedCollection = docpad.getCollection collectionConfig.collection
 			feedPath = docpad.getConfig().outPath + collectionConfig.url
 			feed = new RSS
-				title: site.title
+				title: collectionConfig.title + ' | ' + site.title
 				description: site.description
 				site_url: site.url
 				feed_url: site.url + collectionConfig.url
