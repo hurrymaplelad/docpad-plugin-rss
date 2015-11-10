@@ -38,6 +38,7 @@ plugins:
     default:
       collection: 'posts'
       url: '/rss.xml' # optional, this is the default
+      title: 'Your feed title' #optional, default to site title
 ```
 
 RSS feed is written to `<outPath>/<url>`, `/rss.xml` by default.
@@ -59,6 +60,7 @@ These amazing people have contributed code to this project:
 
 - [Eric Vantillard](http://github.com/evantill) <eric.vantillard@evaxion.fr> — [view contributions](https://github.com/hurrymaplelad/docpad-plugin-rss/commits?author=evantill)
 - [varya](https://github.com/varya) — [view contributions](https://github.com/hurrymaplelad/docpad-plugin-rss/commits?author=varya)
+- [nylnook](https://github.com/nylnook) — [view contributions](https://github.com/hurrymaplelad/docpad-plugin-rss/commits?author=nylnook)
 
 [Become a contributor!](https://github.com/hurrymaplelad/docpad-plugin-rss/blob/master/CONTRIBUTING.md#files)
 
