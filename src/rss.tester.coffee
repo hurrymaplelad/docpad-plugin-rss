@@ -23,6 +23,7 @@ module.exports = (testers) ->
 					folder1:
 						collection: 'folder1'
 						url: '/rss-folder1.xml'
+						title: 'Custom title'
 					folders:
 						collection: 'folders'
 						url: '/rss-folders.xml'
