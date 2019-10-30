@@ -45,9 +45,9 @@
     "rss": "^1.1.1"
   },
   "devDependencies": {
-    "docpad": "6",
-    "coffee-script": "^1.9.0",
-    "projectz": "^0.4.2"
+    "docpad": "^6.79.4",
+    "coffeescript": "^2.3.1",
+    "projectz": "^1.4.0"
   },
   "main": "./out/rss.plugin.js",
   "scripts": {
